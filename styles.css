@@ -1,0 +1,577 @@
+/* Define a custom font called 'CoventryGardenNF' */
+@font-face {
+    font-family: 'CoventryGardenNF';
+
+    /* Specify the source of the font file */
+    src: url('fonts/CoventryGardenNF.otf') format('opentype');
+
+    /* Set the font weight to normal */
+    font-weight: normal;
+
+    /* Set the font style to normal */
+    font-style: normal;
+}
+
+
+
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+html {
+    height: 100%; /* This makes the html element cover at least the full height of the viewport */
+}
+
+/* MAIN ELEMENTS */
+
+body {
+    /* General styling for the entire website */
+    display: grid;
+    grid-template-areas:
+        "topbar"
+        "content"
+        "footer";
+    grid-template-rows: auto 1fr auto; /* Auto for header and footer, 1fr for main content */
+    grid-template-columns: 1fr; /* Single column layout */
+    
+    margin: 0;
+    padding: 0;
+    background-color: #7a89e4;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    min-height: 100vh; /* Ensure the body is at least as tall as the viewport */
+}
+
+
+header {
+    grid-area: topbar;
+    color: #d0d6ff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1px 0;
+    text-align: center;
+    position: sticky; /* Stick the header to the top of the viewport */
+    /* Add shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    /* round the corners */
+    border-radius: 0px 0px 10px 10px;
+}
+
+main {
+    padding: 20px;
+    grid-area: content;
+    
+    
+}
+
+footer {
+    grid-area: footer;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 20px;
+
+    /* Add shadow */
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    /* round the corners */
+    border-radius: 10px 10px 0px 0px;
+    position: relative;
+    bottom: 0; /* Stick the footer to the bottom */
+    margin-top: 40px;
+}
+
+footer a{
+    /* add shadow */
+    text-shadow: 2px 2px 2px #000000;
+
+}
+
+/* HEADER */
+
+.logo {
+    font-family: 'CoventryGardenNF';
+    font-size: 70px;
+    margin: 20px 0px 10px 0px;
+}
+
+.logo a {
+    text-decoration: none; /* Remove the default underline */
+    color: inherit; /* Inherit the color from the parent element */
+}
+.logo a:hover {
+    color: #7a89e4; /* Change the color on hover to purple or your desired color */
+    font-size: 68px;
+}
+
+
+.menu-options {
+    font-size: 20px;
+    /* Use flexbox for centering */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 10vh; /* Take full height of the viewport */
+}
+
+.menu-options ul {
+    /* Removes default list styling */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Keeps the list horizontal */
+    justify-content: space-between;
+}
+
+.menu-options ul li {
+    margin: 0 30px; 
+}
+
+.menu-options ul li:first-child {
+    margin-left: 30px;
+}
+
+.menu-options ul li:last-child {
+    margin-right: 30px;
+}
+
+.menu-options ul li a {
+    text-decoration: none;
+    color: #d0d6ff;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+.menu-options ul li a:hover {
+    color: #7a89e4;
+    transition:  transform 0.2s;
+    transform: scale(1.5);
+}
+
+/* BOTTOM */
+
+.contact-info {
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-info a {
+    color: #d0d6ff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+
+/* INDEX PAGE*/
+
+.slogan-container {
+    position: relative; /* Parent container must be relative */
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.slogan {
+    position: absolute; /* Position slogan absolutely to overlay on the image */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust the positioning to the center */
+    font-weight: bold;
+    font-size: 1.8vw;
+    color: #d0d6ff;
+    text-align: center;
+}
+
+.background {
+    width: 50%; /* Ensure the image covers the container */
+    height: auto;
+    /* align to the center */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.index-category{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center; 
+
+    list-style-type: none;
+    background-color: #d0d6ff;
+    border-radius:3%;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    min-width: 300px;
+    margin-bottom: 3vh;
+}
+
+
+.index-icon {
+    max-width: 200px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center vertically */
+
+    list-style-type: none;
+    background-color: #7a89e4;
+    border-radius:3%;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    
+    width: auto;
+    padding: 20px;
+    margin: 0 auto; /* Center horizontally */
+    text-align: center;
+}
+
+.button a{
+    text-decoration: none;
+    color: white;
+}
+
+/* CATEGORIES PAGE */
+
+.categories{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr)); /* Three columns  */
+    gap: 20px; 
+}
+
+
+.category{
+    list-style-type: none;
+    background-color: #d0d6ff;
+    border-radius:3%;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    min-width: 300px;
+    margin-bottom: 3vh;
+    padding: 1vh;
+}
+
+
+
+#categories-title{
+    grid-column: 1 / -1; /* Span the title across all columns */
+    text-align: center;
+    
+}
+/* Style for the icon */
+.icon {
+    max-width: 130px;
+    height: auto;
+    margin-top: 30px;
+}
+.product-icon {
+    max-width: 250px;
+    height: auto;
+    margin-top: 20px;
+}
+
+.category-title{
+    margin: 0;
+}
+
+.top{
+    margin: 20px 0px 20px 0px;
+}
+
+/* Style for the right column (category details) */
+.category-details {
+    margin: 0px 50px 0px 50px;
+    text-align: left; /* Align text to the left */
+}
+
+.category-details a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #3b52e7;
+}
+
+/* Style for the icons using the "sub-icon" class */
+.sub-icon {
+    max-width: 40px;
+    max-height: 40px;
+    margin-right: 10px; /* Add spacing between the icon and text */
+}
+
+.subcategories {
+    padding: 0;
+    margin: 0;
+}
+
+/* Style for the sub-categories list */
+.sub-category {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 20px 0; /* Adjust spacing between subcategories */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Align items vertically at the center */
+}
+
+/* Style for the subcategory links */
+.sub-category a {
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Align items vertically at the center */
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit the text color from the parent */
+}
+
+/* Hover effect for the subcategory links */
+.sub-category a:hover {
+    transition: transform 0.2s; /* Add a smooth transition effect */
+    transform: scale(1.2); /* Enlarge the link on hover */
+}
+
+/* PRODUCTS PAGE*/
+
+.directory a{
+    text-decoration: none;
+    color: inherit;
+}
+.directory a:hover{
+    color: #d0d6ff;
+}
+
+.product {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto; /* Three rows with automatic height */
+    gap: 40px; /* Gap between grid items */
+}
+
+
+.photos {
+    grid-area: 1 / 1 / 3 / 2;
+    list-style-type: none;
+    background-color: #d0d6ff;
+    border-radius:3%;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    min-width: 300px;
+    padding: 10px;
+}
+
+.large {
+    max-width: 50%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.small-photos {
+    display: flex;
+    align-items: flex-start;
+    
+    gap: 1em;
+    margin-top: 20px;
+}
+
+.small {
+    max-width: 30%;
+    height: auto;
+}
+
+.product-details {
+    grid-area: 1 / 2 / 3 / 3;
+    list-style-type: none;
+    background-color: #d0d6ff;
+    border-radius:3%;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    min-width: 300px;
+}
+
+/* Style for the right column (category details) */
+.bottom {
+    margin: 0px 50px 20px 50px;
+    text-align: left; /* Align text to the left */
+}
+
+.additional-info {
+    grid-area: 3 / 1 / 4 / 3;
+    align-items: center; /* Center content vertically */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack items vertically */
+
+    list-style-type: none;
+    background-color: #d0d6ff;
+    border-radius:3%;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    min-width: 300px;
+}
+
+
+/* ABOUT US PAGE*/
+
+.person-info-container {
+    display: flex; /* Use flexbox to lay out child elements inline */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line if needed */
+    gap: 20px; /* Optional: Adds space between the items */
+}
+
+.person-info {
+    display: flex; /* Align image and description side by side */
+    align-items: center; /* Center items vertically */
+}
+
+.profile-photo {
+    max-width: 150px;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+
+.person-description {
+    max-width: 70%;
+}
+  
+/* Clear floats after image containers */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/* FORMS */
+
+.form-title{
+    text-align: center;
+}
+
+.form-container {
+    max-width: 50%; /* Or the width you prefer */
+    padding: 5vw; /* Responsive padding */
+    margin: 5vw auto; /* Centers the box */
+    background-color: #f3f3f3; /* Light grey background */
+    border-radius: 1em; /* Responsive based on font size */
+    box-shadow: 0 0.2vw 0.5vw rgba(0,0,0,0.2); /* Shadow size based on viewport width */
+    border: 0.1vw solid #ddd; /* Border thickness based on viewport width */
+}
+
+
+input, select, textarea, button {
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 4px 0;
+    padding: 8px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14% 20%;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+form {
+    max-width: 100%; 
+    margin: auto;
+}
+
+fieldset {
+    border: none; /* Removes the border around fieldsets */
+    margin: 10px 0; /* Adds some spacing between each section */
+}
+
+input, select, textarea { /* Now includes textarea */
+    width: 100%; /* Makes textarea take full width of its container */
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; /* Includes padding and border in the width */
+}
+
+label {
+    display: block; /* Makes label take the full width and allows the input to be on a new line */
+    margin-top: 20px; /* Adds space between the label and any elements above */
+}
+
+button[type="submit"] {
+    width: auto;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #7a89e4; /* Example button color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: rgb(91, 72, 177); /* Darker shade on hover */
+}
+
+/* Styling for the <details> and <summary> tags */
+details {
+    margin-bottom: 15px;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* CATEGORIES QUERIES */
+/* Media query for tablets: 2 columns */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .categories {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    }
+}
+
+/* Media query for mobile devices: 1 column */
+@media screen and (max-width: 600px) {
+    .categories {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+}
+
+/* PRODUCTS QUERIES */
+/* Media query for tablets and mobile devices: 1 column */
+@media screen and (max-width: 1024px) {
+    
+    .product {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: auto auto auto;
+    }
+
+    .photos {
+        grid-area: 1 / 1 / 2 / 2; /* Position in the first row */
+    }
+
+    .product-details {
+        grid-area: 2 / 1 / 3 / 2; /* Position in the second row */
+    }
+
+    .additional-info {
+        grid-area: 3 / 1 / 4 / 2; /* Position in the third row */
+    }
+}

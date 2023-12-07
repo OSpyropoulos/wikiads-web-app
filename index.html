@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head id="head">
+    
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Viewport settings for responsive design -->
+
+    <title>ArtQuest</title>
+    <!-- Title of the webpage -->
+
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link to external stylesheet -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to Google Fonts for Poppins font -->
+</head>
+
+<body>
+    <header id="header">
+        <!-- Header section with navigation and branding -->
+
+        <h1 class="logo"><a href="index.html">ArtQuest</a></h1>
+        <!-- Logo and link to the homepage -->
+
+        <nav class="menu-options" id="menu-options">
+            <!-- Navigation menu -->
+            
+            <ul>
+                <!-- List of menu options -->
+                <li><a href="categories.html">Art Categories</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="report.html">Contact</a></li>
+                <li><a href="registration.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Main content section -->
+        
+        <div class="slogan-container">
+            <!-- Container for the slogan -->
+            
+            <div class="slogan">
+                <!-- Slogan text -->
+                <h1>What is art?</h1>
+                <h1>Quest for it here</h1>
+            </div>
+
+            <img src="assets/background.jpg" alt="background" class="background">
+            <!-- Background image for the slogan -->
+        </div>
+
+        <section id = "content" id="index-categories">
+            <!-- Section for displaying top-selling categories -->
+            
+            <h2>Our top sellers</h2>
+            <!-- Title for top-selling categories -->
+
+            <!-- Repeat the following structure for each top-selling category -->
+            <section class="index-category">
+                <!-- Individual category section -->
+                
+                <div class="category-details">
+                    <!-- Container for category details -->
+                    
+                    <img class="index-icon" src="assets/vinyl1.jpg" alt="Songs in the Key of Life">
+                    <!-- Category icon/image -->
+
+                    <div class="top">
+                        <!-- Top section with title and description -->
+                        
+                        <h2 class="category-title">Songs in the Key of Life by Stevie Wonder</h2>
+                        <!-- Category Title -->
+
+                        <p>A musical masterpiece by Stevie Wonder...</p>
+                        <!-- Category Description -->
+                    </div>
+                </div>
+
+                <div class="button">
+                    <!-- Button for more details -->
+                    <a href="vinyl_details.html">Press here</a>
+                </div>
+            </section>
+            
+            <section class="index-category">
+                 <!-- Individual category section -->
+
+                <div class="category-details">
+                      <!-- Container for category details -->
+
+                    <img class="index-icon" src="assets/interstellar.jpg" alt="Interstellar (2014) poster">
+                    <!-- Category icon/image -->
+
+                    <div class="top">
+                        <!-- Top section with title and description -->
+
+                        <h2 class="category-title">Interstellar (2014) by Christopher Nolan</h2>
+                        <!-- Category Title -->
+
+                        <p>"Interstellar" is a visually stunning and intellectually engaging sci-fi epic that explores the mysteries of space, time, and human survival.</p>
+                        <!-- Category Description -->
+
+                    </div>
+                </div>
+                <div class="button">
+                    <!-- Button for more details -->
+                    <a href="film_details.html">Press here</a>
+                </div>
+            </section>
+
+
+        </section>
+    </main>
+
+    <footer class="contact-info" id="footer">
+        <!-- Footer section with contact information -->
+
+        <a href="https://www.instagram.com/odysseas.spyropoulos">Instagram</a>
+        <a href="https://www.facebook.com/">Facebook</a>
+        <a href="https://twitter.com/">Twitter</a>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
+    <!-- x-handlebars-template -->
+    <script id="category-template" type="text/x-handlebars-template">
+        {{#each categories}}
+          <div class="category">
+            <h2>{{title}}</h2>
+            <img src="{{img_url}}" alt="{{title}}">
+            <a href="category.html?id={{id}}">See all the ads</a>
+          </div>
+        {{/each}}
+      </script>
+      
+    <script src="script.js"></script>
+    <!-- Link to external JavaScript file -->
+
+</body>
+</html>
