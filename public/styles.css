@@ -39,7 +39,7 @@ body {
     
     margin: 0;
     padding: 0;
-    background-color: #7a89e4;
+    background-color: #C0C0C0;
     font-family: 'Poppins', sans-serif;
     color: black;
     scrollbar-width: thin;
@@ -103,7 +103,7 @@ footer a{
     color: inherit; /* Inherit the color from the parent element */
 }
 .logo a:hover {
-    color: #7a89e4; /* Change the color on hover to purple or your desired color */
+    color: #000000; /* Change the color on hover to purple or your desired color */
     font-size: 68px;
 }
 
@@ -145,7 +145,7 @@ footer a{
 }
 
 .menu-options ul li a:hover {
-    color: #7a89e4;
+    color: #000000;
     transition:  transform 0.2s;
     transform: scale(1.5);
 }
@@ -251,7 +251,7 @@ footer a{
 
 .category{
     list-style-type: none;
-    background-color: #d0d6ff;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius:3%;
     border-style: solid;
     border-color: rgba(0, 0, 0, 0.5);
