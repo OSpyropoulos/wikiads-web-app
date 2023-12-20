@@ -166,23 +166,6 @@ footer a{
 
 /* INDEX PAGE*/
 
-.slogan-container {
-    position: relative; /* Parent container must be relative */
-    margin-top: 30px;
-    margin-bottom: 50px;
-}
-
-.slogan {
-    position: absolute; /* Position slogan absolutely to overlay on the image */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust the positioning to the center */
-    font-weight: bold;
-    font-size: 1.8vw;
-    color: #d0d6ff;
-    text-align: center;
-}
-
 .background {
     width: 50%; /* Ensure the image covers the container */
     height: auto;
@@ -242,14 +225,34 @@ footer a{
 
 /* CATEGORIES PAGE */
 
+#cart_info img{
+    width: 60px;
+    height: 60px;
+}
+#cart_info, #login{
+    text-align: right;
+    /* margin: 30px 100px; */
+    padding: 30px 100px;
+}
+#login   label{
+    color:white;
+}
+.cart_info_child{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+
+
 .categories{
     display: grid;
-    grid-template-columns: repeat(3, minmax(100px, 1fr)); /* Three columns  */
+    grid-template-columns: repeat(2, minmax(200px, 1fr)); /* Two columns  */
     gap: 20px; 
 }
 
 
-.category{
+.categoryBox{
+    display: inline-block;
     list-style-type: none;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius:3%;
@@ -257,24 +260,44 @@ footer a{
     border-color: rgba(0, 0, 0, 0.5);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
     text-align: center;
-    min-width: 300px;
     margin-bottom: 3vh;
-    padding: 1vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    padding: 2vh;
+}
+
+/* Style for the subcategories list */
+.categoryBox ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style for each list item in the subcategories list */
+.categoryBox li {
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #dedddd;
+    border-radius: 5px;
+}
+
+/* Hover effect on list items */
+.categoryBox li:hover {
+    background-color: #C0C0C0;
+}
+
+.categoryBox li a {
+    text-decoration: none;
+    color: black;
 }
 
 
-
-#categories-title{
-    grid-column: 1 / -1; /* Span the title across all columns */
-    text-align: center;
-    
-}
 /* Style for the icon */
-.icon {
+.imageC {
     max-width: 130px;
     height: auto;
     margin-top: 30px;
 }
+
 .product-icon {
     max-width: 250px;
     height: auto;
@@ -418,37 +441,6 @@ footer a{
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
     text-align: center;
     min-width: 300px;
-}
-
-
-/* ABOUT US PAGE*/
-
-.person-info-container {
-    display: flex; /* Use flexbox to lay out child elements inline */
-    flex-wrap: wrap; /* Allows items to wrap onto the next line if needed */
-    gap: 20px; /* Optional: Adds space between the items */
-}
-
-.person-info {
-    display: flex; /* Align image and description side by side */
-    align-items: center; /* Center items vertically */
-}
-
-.profile-photo {
-    max-width: 150px;
-    border-radius: 50px;
-    margin-right: 20px;
-}
-
-.person-description {
-    max-width: 70%;
-}
-  
-/* Clear floats after image containers */
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
 }
 
 
