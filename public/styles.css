@@ -359,90 +359,63 @@ footer a{
     transform: scale(1.2); /* Enlarge the link on hover */
 }
 
-/* PRODUCTS PAGE*/
 
-.directory a{
-    text-decoration: none;
-    color: inherit;
-}
-.directory a:hover{
-    color: #d0d6ff;
-}
 
-.product {
+/* ADS PAGE*/
+.ads {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto auto auto; /* Three rows with automatic height */
     gap: 40px; /* Gap between grid items */
+    text-align: center;
 }
 
+.ad{
 
-.photos {
-    grid-area: 1 / 1 / 3 / 2;
     list-style-type: none;
-    background-color: #d0d6ff;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius:3%;
     border-style: solid;
     border-color: rgba(0, 0, 0, 0.5);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
     text-align: center;
-    min-width: 300px;
-    padding: 10px;
+    margin-bottom: 3vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    padding: 2vh;
 }
 
-.large {
-    max-width: 50%;
-    height: auto;
-    margin-bottom: 10px;
+
+.ad_info h2{
+    font-style: bold;
+    font-weight: bold;
+    font-size: larger;
 }
 
-.small-photos {
-    display: flex;
-    align-items: flex-start;
-    
-    gap: 1em;
-    margin-top: 20px;
+.ad_info h3{
+    font-weight: lighter;
+    font-size: large;
+  }
+
+.ad_info h4{
+    font-size: larger;
+    font-weight: bold;
+    font-size: large;
 }
 
-.small {
-    max-width: 30%;
-    height: auto;
+.image {
+    border-radius: 3%;
+    width: 130px;
+    height: 130px;
 }
 
-.product-details {
-    grid-area: 1 / 2 / 3 / 3;
-    list-style-type: none;
-    background-color: #d0d6ff;
-    border-radius:3%;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+.images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto; /* Three rows with automatic height */
+    gap: 5px; /* Gap between grid items */
     text-align: center;
-    min-width: 300px;
 }
-
-/* Style for the right column (category details) */
-.bottom {
-    margin: 0px 50px 20px 50px;
-    text-align: left; /* Align text to the left */
-}
-
-.additional-info {
-    grid-area: 3 / 1 / 4 / 3;
-    align-items: center; /* Center content vertically */
-    display: flex; /* Use flexbox for centering */
-    flex-direction: column; /* Stack items vertically */
-
-    list-style-type: none;
-    background-color: #d0d6ff;
-    border-radius:3%;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    min-width: 300px;
-}
-
 
 /* FORMS */
 
