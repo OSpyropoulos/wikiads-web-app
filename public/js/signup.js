@@ -73,7 +73,7 @@ window.addEventListener('load', (event) => {
                     if (data.status === 'SUCCESS') {
                         alert('Signup successful!');
                         // Redirect to the index page
-                        // window.location.href = '/index.html';
+                        window.location.href = '/index.html';
                     } else {
                         alert('Signup failed. ' + data.message);
                     }

@@ -16,18 +16,6 @@ function fetchData(url, parseFunction, renderFunction) {
         });
 }
 
-function listAds() {
-    const url = `https://wiki-ads.onrender.com/ads?subcategory=${categoryId}`;
-    fetchData(url, parseAds, renderAds);
-}
-
-function renderAds(data) {
-    const adsList = document.getElementById("ads_list");
-    adsList.innerHTML = templates.list(data);
-}
-
-listAds();
-
 function parseAds(data) {
     return {
         ads: data.map(ad => ({
@@ -40,6 +28,18 @@ function parseAds(data) {
         }))
     };
 }
+
+function renderAds(data) {
+    const adsList = document.getElementById("ads_list");
+    adsList.innerHTML = templates.list_subcat(data);
+}
+
+function listAds() {
+    const url = `https://wiki-ads.onrender.com/ads?subcategory=${categoryId}`;
+    fetchData(url, parseAds, renderAds);
+}
+
+listAds();
 
 const templates = {};
 

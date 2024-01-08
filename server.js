@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
     res.sendFile('index.html', options)
 })
 
+// Login Service (LS)
 const userDao = require('./userDao');
 
 app.post('/login', (req, res) => {
@@ -47,6 +48,8 @@ app.post('/login', (req, res) => {
         if (user && user.password === password) {
             console.log(`LOGIN MEROS 4`);
             const sessionId = uuid.v4();
+            user.setSessionId(sessionId);
+
             res.json({
                 status: "SUCCESS",
                 sessionId,
@@ -98,3 +101,87 @@ app.post('/signup', (req, res) => {
         }
     }
 });
+
+// Add to Favorites Service (AFS)
+app.post('/add_to_cart', (req, res) => {
+    const { username, sessionId, id, title, description, cost, imageUrl } = req.body;
+    const user = userDao.getUserByUsername(username);
+
+    if (user && user.sessionId === sessionId) {
+        const adExists = user.cart.cartItems.some(ad => ad.id === id);
+
+        if (!adExists) {
+            // Add the advertisement to the cart
+            user.cart.cartItems.push({
+                id,
+                title,
+                description,
+                cost,
+                imageUrl
+            });
+
+            // Update totalCost & size
+            user.cart.totalCost += cost;
+            user.cart.size += 1;
+
+            console.log(user)
+            console.log(user.cart)
+
+            res.json({
+                status: 'SUCCESS',
+                message: 'Advertisement added to cart successfully.'
+            });
+        } else {
+            res.status(400).json({
+                status: 'FAIL',
+                message: 'Advertisement is already in the cart.'
+            });
+        }
+    } else {
+        res.status(401).json({
+            status: 'FAIL',
+            message: 'Unauthorized access. Please sign in.'
+        });
+    }
+});
+
+// Get cart size of user cart
+// Get cart size of user cart
+app.post('/cart_size', (req, res) => {
+    const { username } = req.body;
+    const user = userDao.getUserByUsername(username);
+
+    if (user) {
+        res.status(200).json({
+            size: user.cart.size
+        });
+    } else {
+        // Handle the case where the user is not found
+        res.status(404).json({
+            error: 'User not found'
+        });
+    }
+});
+
+
+
+// MHTSOU
+app.patch('/remove_from_cart',(req,res)=>{
+    let{username} = req.body;
+    user.findOneAndUpdate({username:username},req.body,{new:true},
+        (err,doc)=>{
+            if(err) return res.status(500).send(err);
+            res.status(200).send(doc);
+        });
+})
+
+app.post('/user/cart',(req,res)=>{
+    let{username,id}=req.body;
+    //console.log(req.body);
+    user.find({username}).then(data=>{
+        res.type('application/json');
+        res.status(200).send(data[0]);
+    }).catch(err =>{
+        console.log(err);
+    })
+})

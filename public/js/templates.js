@@ -1,6 +1,6 @@
 const templates = {};
 
-var ads = `
+var ads_category = `
     {{#if ads}}
         <ul class='ads'>
             {{#each ads}}
@@ -12,13 +12,37 @@ var ads = `
                         <h2>{{title}}</h2>
                         <h3>{{description}}</h3>
                         <h4>{{cost}}€</h4>
-                        <button class='search_button' id='{{@index}}' onclick=addToc({{@index}})>Add to cart</button>
+                        <button class='add_to_cart_button' id='{{@index}}' onclick=addToCart({{@index}})>Add to cart</button>
                     </section>
                 </li>
             {{/each}}
         </ul>
     {{/if}}`;
-templates.list = Handlebars.compile(ads);
+templates.list_cat = Handlebars.compile(ads_category);
+
+var ads_subcategory = `
+{{#if ads}}
+    <ul class='ads'>
+        {{#each ads}}
+            <li class='ad'>
+                <div class='ad_info'>
+                    <div class='images'>
+                        {{#each img_url}}
+                            <img class='image' src='https://wiki-ads.onrender.com/{{this}}'>
+                        {{/each}}
+                    </div>
+                </div>
+                <section class='ad_info'>
+                    <h2>{{title}}</h2>
+                    <h3>{{description}}</h3>
+                    <h4>{{cost}}€</h4>
+                    <button class='add_to_cart_button' id='{{@index}}' onclick=addToCart({{@index}})>Add to cart</button>
+                </section>
+            </li>
+        {{/each}}
+    </ul>
+{{/if}}`;
+templates.list_subcat = Handlebars.compile(ads_subcategory);
 
 
 var userCreds = 
@@ -31,17 +55,17 @@ var userCreds =
 
 templates.logged_in = Handlebars.compile(userCreds);
 
-var cart_size ="<h1>{{size}}</h1>";
+var cart_size ="<div>{{size}}</div>";
 templates.cart_size = Handlebars.compile(cart_size);
 
 
 
 var cart = " \{{#if creds}} \
                     {{#each creds}} \
-                        <a href='cart.html?username={{username}}&id={{id}}' onclick=goToCart()><img src='./images/cart.png' alt=''></a> \
+                        <a href='cart.html?username={{username}}&sessionId={{sessionId}}' onclick=goToCart()><img src='./images/cart.png' alt=''></a> \
                     {{/each}} \
                {{else}} \
-                    <a href='' target='_self' onclick=goToCart()><img src='./images/cart.png' alt=''></a> \
+                    <div onclick=goToCart()><img src='./images/cart.png' alt=''></div> \
                {{/if}}"
 templates.Gocart = Handlebars.compile(cart);
 

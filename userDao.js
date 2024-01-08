@@ -5,6 +5,17 @@ class User {
     constructor(username, password) {
         this.username = username;
         this.password = password;
+        this.sessionId = null; // Initialize sessionId to null
+        this.cart = {
+            cartItems: [],
+            totalCost: 0,
+            size:0
+        };
+    }
+
+    // Function to set sessionId
+    setSessionId(sessionId) {
+        this.sessionId = sessionId;
     }
 }
 
@@ -30,5 +41,5 @@ function printUsers() {
 module.exports = {
     getUserByUsername,
     createUser,
-    printUsers    // Add this line to export the printUsers function
+    printUsers,
 };
