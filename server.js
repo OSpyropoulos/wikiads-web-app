@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 })
 
 // Login Service (LS)
-const userDao = require('./userDao');
+const userDao = require('./models/userDao');
 
 app.post('/login', (req, res) => {
     userDao.printUsers();
