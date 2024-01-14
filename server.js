@@ -49,6 +49,7 @@ app.post('/login', (req, res) => {
             console.log(`LOGIN MEROS 4`);
             const sessionId = uuid.v4();
             user.setSessionId(sessionId);
+    
 
             res.json({
                 status: "SUCCESS",
@@ -185,3 +186,22 @@ app.post('/user/cart',(req,res)=>{
         console.log(err);
     })
 })
+
+
+
+app.get('/get_cart_items', (req, res) => {
+    const { username, sessionId } = req.query;
+
+    const user = userDao.getUserByUsername(username);
+
+    if (user && user.sessionId === sessionId) {
+        // User is authenticated, return their cart items
+        res.json(user.cart.cartItems);
+    } else {
+        // User not authenticated or not found
+        res.status(401).json({
+            status: 'FAIL',
+            message: 'Unauthorized access or user not found.'
+        });
+    }
+});
