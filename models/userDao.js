@@ -42,4 +42,11 @@ module.exports = {
     getUserByUsername,
     createUser,
     printUsers,
+    // any other functions or objects you want to export
 };
+
+//make variables global
+global.users = users;
+global.User = User;
+global.getUserByUsername = getUserByUsername;
+global.createUser = createUser;
