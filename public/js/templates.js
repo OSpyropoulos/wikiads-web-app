@@ -12,7 +12,7 @@ var ads_category = `
                         <h2>{{title}}</h2>
                         <h3>{{description}}</h3>
                         <h4>{{cost}}€</h4>
-                        <button class='add_to_cart_button' id='{{@index}}' onclick=addToCart({{@index}})>Add to cart</button>
+                        <button class='add_to_cart_button' id='{{@index}}' onclick=addToCart({{@index}})>Add to favourites</button>
                     </section>
                 </li>
             {{/each}}
@@ -36,7 +36,7 @@ var ads_subcategory = `
                     <h2>{{title}}</h2>
                     <h3>{{description}}</h3>
                     <h4>{{cost}}€</h4>
-                    <button class='add_to_cart_button' id='{{@index}}' onclick=addToCart({{@index}})>Add to cart</button>
+                    <button class='add_to_cart_button' id='{{@index}}' onclick=addToCart({{@index}})>Add to favourites</button>
                 </section>
             </li>
         {{/each}}
@@ -62,10 +62,10 @@ templates.cart_size = Handlebars.compile(cart_size);
 
 var cart = " \{{#if creds}} \
                     {{#each creds}} \
-                        <a href='cart.html?username={{username}}&sessionId={{sessionId}}' onclick=goToCart()><img src='./images/cart.png' alt=''></a> \
+                        <a href='favorite-ads.html?username={{username}}&sessionId={{sessionId}}' onclick=goToCart()><img src='./images/favourite.png' alt=''></a> \
                     {{/each}} \
                {{else}} \
-                    <div onclick=goToCart()><img src='./images/cart.png' alt=''></div> \
+                    <div onclick=goToCart()><img src='./images/favourite.png' alt=''></div> \
                {{/if}}"
 templates.Gocart = Handlebars.compile(cart);
 
@@ -88,5 +88,28 @@ var cartProducts = "{{#if items}} \
                     {{/if}}"
 templates.viewCart = Handlebars.compile(cartProducts);  
 
+
+
 var totalCost = "<h2>TOTAL COST:    {{#if cost}}{{cost}}€{{/if}}</h2>"
 templates.viewCost = Handlebars.compile(totalCost);
+
+
+
+var cartItems = `
+  {{#each this}}
+    <ul class='ads'>
+    <li class='ad'>
+    <div class='ad_info'>
+        <img class='image' src='https://wiki-ads.onrender.com/{{img_url}}'>
+    </div'>
+    <section class='ad_info'>
+        <h2>{{title}}</h2>
+        <h3>{{description}}</h3>
+        <h4>{{cost}}€</h4>
+    </section>
+    </li>
+    </ul>
+  {{/each}}
+`;
+templates.cartItems = Handlebars.compile(cartItems);
+
