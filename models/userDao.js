@@ -39,11 +39,12 @@ function printUsers() {
 }
 
 module.exports = {
-    getUserByUsername,
     createUser,
-    printUsers,
-    // any other functions or objects you want to export
+    getUserByUsername,
+    printUsers
+    // other functions you want to export
 };
+
 
 //make variables global
 global.users = users;
