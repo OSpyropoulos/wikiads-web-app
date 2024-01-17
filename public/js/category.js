@@ -181,6 +181,10 @@ function addToCart(adId) {
         return;
     }
 
+        // Use getUserByUsername to get the user object
+    const user = getUserByUsername(username);
+
+
     // Fetch additional information for the specified adId
     fetchAdDetails(adId)
         .then(adDetails => {
@@ -252,6 +256,13 @@ function goToCart(){
         alert("Please login so you can access your cart.");
         return;
     }
-    window.location.href = '/cart.html';
+    window.location.href = '/favourite-ads.html';
 
 }
+
+
+
+
+
+
+// Favorite Ads Service - FAS

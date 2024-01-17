@@ -59,7 +59,7 @@ templates.list = Handlebars.compile(`
                     <h2>{{title}}</h2>
                     <h3>{{description}}</h3>
                     <h4>{{cost}}€</h4>
-                    <button class='search_button' id='{{@index}}' onclick=addToc({{@index}})>Add to cart</button>
+                    <button class='search_button' id='{{@index}}' onclick=addToc({{@index}})>Add to favourites</button>
                 </section>
             </li>
         {{/each}}
