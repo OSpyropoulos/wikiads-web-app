@@ -42,12 +42,17 @@ module.exports = {
     createUser,
     getUserByUsername,
     printUsers
-    // other functions you want to export
 };
 
+// Creating default users
+const defaultUser1 = new User('user1', '123456');
+const defaultUser2 = new User('user2', '123456');
+
+// Adding default users to the users array
+users.push(defaultUser1, defaultUser2); 
 
 //make variables global
-global.users = users;
-global.User = User;
-global.getUserByUsername = getUserByUsername;
-global.createUser = createUser;
+// global.users = users;
+// global.User = User;
+// global.getUserByUsername = getUserByUsername;
+// global.createUser = createUser;

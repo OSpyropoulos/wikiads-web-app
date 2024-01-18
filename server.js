@@ -147,7 +147,6 @@ app.post('/add_to_cart', (req, res) => {
 });
 
 // Get cart size of user cart
-// Get cart size of user cart
 app.post('/cart_size', (req, res) => {
     const { username } = req.body;
     const user = userDao.getUserByUsername(username);
