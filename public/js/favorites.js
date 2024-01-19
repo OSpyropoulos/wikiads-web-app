@@ -7,7 +7,7 @@ function getQueryParam(param) {
 }
 
 
-//console.log('getUserByUsername:', window.getUserByUsername);
+console.log('getUserByUsername:', window.getUserByUsername);
 
 
 const username = getQueryParam('username');
@@ -16,9 +16,9 @@ const sessionId = getQueryParam('sessionId');
 console.log('Username:', username);
 console.log('Session ID:', sessionId);
 
-//const user = getUserByUsername(username);
+const user = getUserByUsername(username);
 //create user
-//createUser(username, sessionId);
+createUser(username, sessionId);
 
 
 function fetchUserCartItems(username, sessionId) {
@@ -31,10 +31,12 @@ function fetchUserCartItems(username, sessionId) {
         })
         .then(cartItems => {
             console.log('Cart items:', cartItems);
+            const cartItemIds = cartItems.map(item => item.id); // Extract IDs from each cart item
+            console.log('Cart item IDs:', cartItemIds); // Log the IDs to the console
         
+            // Render the cart items using Handlebars template
             const cartItemsHtml = templates.cartItems(cartItems);
-            console.log('cartItemsHtml:', cartItemsHtml);
-            document.getElementById("cartItems").innerHTML = cartItemsHtml;
+            document.getElementById('cartContainer').innerHTML = cartItemsHtml;
         })
         
         .catch(error => {

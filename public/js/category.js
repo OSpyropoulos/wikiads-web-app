@@ -35,7 +35,6 @@ function parseAds(data, isCategoryPage) {
 
 
 function renderAdsCat(data) {
-    console.log('data:', data);
     const adsList = document.getElementById("ads_list");
     adsList.innerHTML = templates.list_cat(data);
 }
@@ -182,16 +181,13 @@ function addToCart(adId) {
         return;
     }
 
-    // Use getUserByUsername to get the user object
-    //const user = getUserByUsername(username);
-    console.log("adId: ",adId)
-    console.log("logged_in: ",logged_in)
+        // Use getUserByUsername to get the user object
+    const user = getUserByUsername(username);
+
 
     // Fetch additional information for the specified adId
     fetchAdDetails(adId)
         .then(adDetails => {
-            console.log("adDetails: ",adDetails)
-
             const dataToAdd = {
                 username: logged_in.username,
                 sessionId: logged_in.sessionId,
@@ -201,8 +197,6 @@ function addToCart(adId) {
                 cost: adDetails.cost,
                 imageUrl: adDetails.imageUrl
             };
-
-            console.log("dataToAdd: ",dataToAdd)
 
             // Make a POST request to the server endpoint /add_to_cart
             fetch('/add_to_cart', {
@@ -245,9 +239,7 @@ function addToCart(adId) {
 }
 
 function fetchAdDetails(adId) {
-    const url = isCategoryPage
-    ? `https://wiki-ads.onrender.com/ads?category=${categoryId}`
-    : `https://wiki-ads.onrender.com/ads?subcategory=${categoryId}`;
+    const url = `https://wiki-ads.onrender.com/ads?category=${categoryId}`;
     return fetch(url)
         .then(response => response.json())
         .then(advertisements => {
