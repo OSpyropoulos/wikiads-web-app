@@ -34,7 +34,6 @@ function parseAds(data, isCategoryPage) {
 
 
 function renderAdsCat(data) {
-    console.log('data:', data);
     const adsList = document.getElementById("ads_list");
     adsList.innerHTML = templates.list_cat(data);
 }
@@ -172,15 +171,9 @@ function addToCart(adId) {
         return;
     }
 
-    // Use getUserByUsername to get the user object
-    //const user = getUserByUsername(username);
-    
-
     // Fetch additional information for the specified adId
     fetchAdDetails(adId)
         .then(adDetails => {
-            console.log("adDetails: ",adDetails)
-
             const dataToAdd = {
                 username: logged_in.username,
                 sessionId: logged_in.sessionId,
@@ -245,9 +238,6 @@ function fetchAdDetails(adId) {
         });
 }
 
-
-
-
 function goToCart(){
     if(!logged_in){
         alert("Please login so you can access your cart.");
@@ -256,8 +246,3 @@ function goToCart(){
     window.location.href = '/favourite-ads.html';
 
 }
-
-
-
-
-

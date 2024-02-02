@@ -2,8 +2,6 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const categoryId = urlParams.get('categoryId');
 
-console.log(categoryId)
-
 function fetchData(url, parseFunction, renderFunction) {
     fetch(url)
         .then(response => response.json())

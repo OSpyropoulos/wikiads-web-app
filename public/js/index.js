@@ -6,21 +6,6 @@ fetch(categoriesUrl)
     .then(categories => {
         const categoriesContainer = document.getElementById("categoriesContainer");
 
-        // Define Handlebars template for category box
-        const categoryBoxTemplate = `
-            <div class="categoryBox">
-                <a href='category.html?categoryId={{id}}'><img class='imageC' src='https://wiki-ads.onrender.com/{{img_url}}'></a>
-                <h2>{{title}}</h2>
-                <ul>
-                    {{#each subcategories}}
-                        <li><a href='subcategory.html?categoryId={{id}}'>{{title}}</a></li>
-                    {{/each}}
-                </ul>
-            </div>
-        `;
-
-        const template = Handlebars.compile(categoryBoxTemplate);
-
         // Fetch subcategories for each category and wait for all promises to resolve
         const fetchPromises = categories.map(category => {
             const subcategoriesUrl = `https://wiki-ads.onrender.com/categories/${category.id}/subcategories`;
@@ -33,7 +18,7 @@ fetch(categoriesUrl)
             .then(categoryDataArray => {
                 // Iterate through categories with ordered data
                 categoryDataArray.forEach(categoryData => {
-                    const categoryBoxHtml = template(categoryData);
+                    const categoryBoxHtml = templates.categoryBoxTemplate(categoryData);
                     categoriesContainer.innerHTML += categoryBoxHtml;
                 });
             })

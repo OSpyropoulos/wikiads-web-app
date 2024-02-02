@@ -34,19 +34,14 @@ const userDao = require('./models/userDao');
 app.post('/login', (req, res) => {
     userDao.printUsers();
     const { password, username } = req.body;
-    console.log(`LOGIN MEROS 1`);
     if (username === "" || password === "") {
-        console.log(`LOGIN MEROS 2`);
         res.json({
             status: "FAIL",
             message: "Empty input field."
         });
     } else {
         const user = userDao.getUserByUsername(username);
-        console.log(user);
-        console.log(`LOGIN MEROS 3`);
         if (user && user.password === password) {
-            console.log(`LOGIN MEROS 4`);
             const sessionId = uuid.v4();
             user.setSessionId(sessionId);
     
@@ -57,7 +52,6 @@ app.post('/login', (req, res) => {
                 username
             });
         } else {
-            console.log(`LOGIN MEROS 5`);
             res.status(401).json({
                 status: "FAIL",
                 message: "Invalid username or password.",
@@ -72,26 +66,21 @@ app.post('/login', (req, res) => {
 
 app.post('/signup', (req, res) => {
     const { username, password } = req.body;
-    console.log(`SIGNUP MEROS 1`);
 
     if (!username || !password) {
-        console.log(`SIGNUP MEROS 2`);
         res.json({
             status: "FAIL",
             message: "Empty input field."
         });
     } else {
-        console.log(`SIGNUP MEROS 3`);
         const existingUser = userDao.getUserByUsername(username);
 
         if (existingUser) {
-            console.log(`SIGNUP MEROS 4`);
             res.json({
                 status: "FAIL",
                 message: "Username already exists."
             });
         } else {
-            console.log(`SIGNUP MEROS 5`);
             userDao.createUser(username, password);
             userDao.printUsers();
 
@@ -124,9 +113,6 @@ app.post('/add_to_cart', (req, res) => {
             // Update totalCost & size
             user.cart.totalCost += cost;
             user.cart.size += 1;
-
-            console.log(user)
-            console.log(user.cart)
 
             res.json({
                 status: 'SUCCESS',
@@ -164,30 +150,7 @@ app.post('/cart_size', (req, res) => {
 });
 
 
-
-// MHTSOU
-app.patch('/remove_from_cart',(req,res)=>{
-    let{username} = req.body;
-    user.findOneAndUpdate({username:username},req.body,{new:true},
-        (err,doc)=>{
-            if(err) return res.status(500).send(err);
-            res.status(200).send(doc);
-        });
-})
-
-app.post('/user/cart',(req,res)=>{
-    let{username,id}=req.body;
-    //console.log(req.body);
-    user.find({username}).then(data=>{
-        res.type('application/json');
-        res.status(200).send(data[0]);
-    }).catch(err =>{
-        console.log(err);
-    })
-})
-
-
-
+// Favorites Retrieval Service (FRS)
 app.get('/get_cart_items', (req, res) => {
     const { username, sessionId } = req.query;
 

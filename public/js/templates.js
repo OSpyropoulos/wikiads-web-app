@@ -1,5 +1,18 @@
 const templates = {};
 
+var categoryBoxTemplate = `
+    <div class="categoryBox">
+        <a href='category.html?categoryId={{id}}'><img class='imageC' src='https://wiki-ads.onrender.com/{{img_url}}'></a>
+        <h2>{{title}}</h2>
+        <ul>
+            {{#each subcategories}}
+                <li><a href='subcategory.html?categoryId={{id}}'>{{title}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+`;
+templates.categoryBoxTemplate = Handlebars.compile(categoryBoxTemplate);
+
 var ads_category = `
     {{#if ads}}
         <ul class='ads'>
@@ -36,7 +49,7 @@ var ads_subcategory = `
                     <h2>{{title}}</h2>
                     <h3>{{description}}</h3>
                     <h4>{{cost}}€</h4>
-                    <button class='add_to_cart_button' id='{{@index}}' onclick=addToCart({{@index}})>Add to favourites</button>
+                    <button class='add_to_cart_button' id='{{@index}}' onclick=addToCart({{@index}})>Add to favorites</button>
                 </section>
             </li>
         {{/each}}
@@ -87,6 +100,5 @@ var cartItems = `
 </ul>
 
 `;
-
 templates.cartItems = Handlebars.compile(cartItems);
 
