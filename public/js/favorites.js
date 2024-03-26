@@ -4,9 +4,25 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
+<<<<<<< Updated upstream
 const username = getQueryParam('username');
 const sessionId = getQueryParam('sessionId');
 
+=======
+
+
+const username = getQueryParam('username');
+const sessionId = getQueryParam('sessionId');
+
+console.log('Username:', username);
+console.log('Session ID:', sessionId);
+
+// const user = getUserByUsername(username);
+// //create user
+// createUser(username, sessionId);
+
+
+>>>>>>> Stashed changes
 function fetchUserCartItems(username, sessionId) {
     fetch(`/get_cart_items?username=${username}&sessionId=${sessionId}`)
         .then(response => {
