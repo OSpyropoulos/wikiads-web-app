@@ -1,8 +1,8 @@
-## Silver Chances Web App
+## Silver Chance Web App
 
-Welcome to Silver Chances - your go-to platform for exploring classified ads tailored to your preferences. Powered by the WikiAds Web API, Silver Chances provides an intuitive interface for browsing through various categories of ads, marking favorites, and accessing them conveniently.
+Welcome to Silver Chance - your go-to platform for exploring classified ads tailored to your preferences. Powered by the WikiAds Web API, Silver Chance provides an intuitive interface for browsing through various categories of ads, marking favorites, and accessing them conveniently.
 
-***P.S: We have nothing to do with Golden Chances (Χρυσή Ευκαιρία)***
+***P.S: We have nothing to do with Golden Chance (Χρυσή Ευκαιρία)***
 
 ### Features:
 
@@ -34,6 +34,6 @@ To get started with the WikiAds Web App, follow these simple steps:
    npm run devstart
    ```
 
-4. **Access the App**: Open your web browser and navigate to `http://localhost:8081` to access the WikiAds Web App.
+4. **Access the App**: Open your web browser and navigate to `http://localhost:8081` to browse Silver Chance.
 
 ### Enjoy Silver Chance !
