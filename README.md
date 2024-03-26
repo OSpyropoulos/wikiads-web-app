@@ -2,7 +2,7 @@
 
 Welcome to Silver Chances - your go-to platform for exploring classified ads tailored to your preferences. Powered by the WikiAds Web API, Silver Chances provides an intuitive interface for browsing through various categories of ads, marking favorites, and accessing them conveniently.
 
-P.S: We have nothing to do with Golden Chances (or Χρυσή Ευκαιρία)
+***P.S: We have nothing to do with Golden Chances (Χρυσή Ευκαιρία)***
 
 ### Features:
 
